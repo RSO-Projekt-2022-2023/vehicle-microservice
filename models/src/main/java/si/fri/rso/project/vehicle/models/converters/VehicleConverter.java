@@ -1,8 +1,9 @@
-package si.fri.rso.samples.imagecatalog.models.converters;
+package si.fri.rso.project.vehicle.models.converters;
 
 
-import si.fri.rso.samples.imagecatalog.lib.*;
-import si.fri.rso.samples.imagecatalog.models.entities.*;
+import si.fri.rso.project.vehicle.lib.Vehicle;
+import si.fri.rso.project.vehicle.models.entities.VehicleEntity;
+
 
 public class VehicleConverter {
 

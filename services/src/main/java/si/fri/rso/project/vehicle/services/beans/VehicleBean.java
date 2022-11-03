@@ -1,4 +1,4 @@
-package si.fri.rso.samples.imagecatalog.services.beans;
+package si.fri.rso.project.vehicle.services.beans;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -13,9 +13,9 @@ import java.util.stream.Collectors;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
 
-import si.fri.rso.samples.imagecatalog.lib.Vehicle;
-import si.fri.rso.samples.imagecatalog.models.converters.VehicleConverter;
-import si.fri.rso.samples.imagecatalog.models.entities.VehicleEntity;
+import si.fri.rso.project.vehicle.lib.Vehicle;
+import si.fri.rso.project.vehicle.models.converters.VehicleConverter;
+import si.fri.rso.project.vehicle.models.entities.VehicleEntity;
 
 
 @RequestScoped
@@ -54,32 +54,32 @@ public class VehicleBean {
             throw new NotFoundException();
         }
 
-        Vehicle imageMetadata = VehicleConverter.toDto(vehicleEntity);
+        Vehicle vehicle = VehicleConverter.toDto(vehicleEntity);
 
-        return imageMetadata;
+        return vehicle;
     }
 
-    public Vehicle createImageMetadata(Vehicle vehicle) {
+    public Vehicle createVehicle(Vehicle vehicle) {
 
-        VehicleEntity imageMetadataEntity = VehicleConverter.toEntity(vehicle);
+        VehicleEntity vehicleEntity = VehicleConverter.toEntity(vehicle);
 
         try {
             beginTx();
-            em.persist(imageMetadataEntity);
+            em.persist(vehicleEntity);
             commitTx();
         }
         catch (Exception e) {
             rollbackTx();
         }
 
-        if (imageMetadataEntity.getId() == null) {
+        if (vehicleEntity.getId() == null) {
             throw new RuntimeException("Entity was not persisted");
         }
 
-        return VehicleConverter.toDto(imageMetadataEntity);
+        return VehicleConverter.toDto(vehicleEntity);
     }
 
-    public Vehicle putImageMetadata(Integer id, Vehicle vehicle) {
+    public Vehicle putVehicle(Integer id, Vehicle vehicle) {
 
         VehicleEntity c = em.find(VehicleEntity.class, id);
 

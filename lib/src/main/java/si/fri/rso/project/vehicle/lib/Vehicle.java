@@ -1,43 +1,17 @@
-package si.fri.rso.samples.imagecatalog.models.entities;
+package si.fri.rso.project.vehicle.lib;
 
-import javax.persistence.*;
 import java.time.Instant;
 
-@Entity
-@Table(name = "vehicles")
-@NamedQueries(value =
-        {
-                @NamedQuery(name = "VehicleEntity.getAll",
-                        query = "SELECT im FROM VehicleEntity im")
-        })
-public class VehicleEntity {
+public class Vehicle {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(name = "model")
+    private Integer vehicleId;
     private String model;
-
-    @Column(name = "num_of_kilometers")
     private Integer num_of_kilometers;
-
-    @Column(name = "lst_charge")
-    private Integer lst_charge; //charge in kWh
-
-    @Column(name = "num_of_charges_lst_month")
+    private Integer lst_charge;
     private Integer num_of_charges_lst_month;
-
-    @Column(name = "created")
     private Instant created;
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getModel() {
         return model;
@@ -77,6 +51,14 @@ public class VehicleEntity {
 
     public void setCreated(Instant created) {
         this.created = created;
+    }
+
+    public Integer getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId(Integer vehicleId) {
+        this.vehicleId = vehicleId;
     }
 
 }
