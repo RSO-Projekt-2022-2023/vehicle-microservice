@@ -3,7 +3,7 @@
 ## Prerequisites
 
 ```bash
-docker run -d --name pg-image-metadata -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=image-metadata -p 5432:5432 postgres:13
+docker run -d --name pg-image-metadata -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=vehicles -p 5432:5432 postgres:13
 ```
 
 ## Build and run commands
@@ -21,11 +21,11 @@ Available at: localhost:8080/v1/images
 
 ## Docker commands
 ```bash
-docker build -t novaslika .   
+docker build -t vehicle-api-image .   
 docker images
-docker run novaslika    
-docker tag novaslika prporso/novaslika   
-docker push prporso/novaslika
+docker run vehicle-api-image    
+docker tag vehicle-api-image burton588/vehicle-api-image   
+docker push burton588/vehicle-api-image
 docker ps
 ```
 

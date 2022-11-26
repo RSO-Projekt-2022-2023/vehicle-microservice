@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vehicle-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vehicle
+  template:
+    metadata:
+      labels:
+        app: vehicle
+    spec:
+      containers:
+        - image: burton588/vehicle-api-image:2022-11-14-12-45-13
+          name: vehicle
+          env:
+            - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
+              value: jdbc:postgres://peanut.db.elephantsql.com:5432/hiiixqwm
+            - name: KUMULUZEE_DATASOURCES0_USERNAME
+              value: hiiixqwm
+            - name: KUMULUZEE_DATASOURCES0_PASSWORD
+              value: nsIpDZRNA5slbNFPLlkY20WzKDOqHVoN
+          ports:
+            - containerPort: 8080
+              name: server
+              protocol: TCP
+#          livenessProbe:
+#            httpGet:
+#              path: /health/live
+#              port: server
+#            initialDelaySeconds: 20
+#            periodSeconds: 3
+#          readinessProbe:
+#            httpGet:
+#              path: /health/ready
+#              port: server
+#            initialDelaySeconds: 20
+#            periodSeconds: 3
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: vehicle
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: vehicle
