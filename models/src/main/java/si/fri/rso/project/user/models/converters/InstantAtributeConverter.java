@@ -1,4 +1,4 @@
-package si.fri.rso.project.vehicle.models.converters;
+package si.fri.rso.project.user.models.converters;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

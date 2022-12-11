@@ -13,11 +13,11 @@ spec:
         app: vehicle
     spec:
       containers:
-        - image: burton588/vehicle-api-image:2022-11-14-12-45-13
+        - image: burton588/vehicle-api-image:2022-11-26-18-18-14
           name: vehicle
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: jdbc:postgres://peanut.db.elephantsql.com:5432/hiiixqwm
+              value: jdbc:postgresql://peanut.db.elephantsql.com:5432/hiiixqwm
             - name: KUMULUZEE_DATASOURCES0_USERNAME
               value: hiiixqwm
             - name: KUMULUZEE_DATASOURCES0_PASSWORD

@@ -1,4 +1,4 @@
-package si.fri.rso.project.vehicle.services.producers;
+package si.fri.rso.project.user.services.producers;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
