@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>user</artifactId>
+        <artifactId>vehicle</artifactId>
         <groupId>si.fri.rso.project</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>user-models</artifactId>
+    <artifactId>vehicle-models</artifactId>
 
     <dependencies>
         <dependency>
@@ -19,7 +19,7 @@
 
         <dependency>
             <groupId>si.fri.rso.project</groupId>
-            <artifactId>user-lib</artifactId>
+            <artifactId>vehicle-lib</artifactId>
         </dependency>
 
         <dependency>

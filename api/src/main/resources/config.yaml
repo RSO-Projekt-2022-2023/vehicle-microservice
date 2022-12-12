@@ -1,5 +1,5 @@
 kumuluzee:
-  name: user-service
+  name: image-catalog-service
   env:
     name: dev
   version: 1.0.0
@@ -9,7 +9,7 @@ kumuluzee:
       port: 8080
   datasources:
     - jndi-name: jdbc/ImageMetadataDS
-      connection-url: jdbc:postgresql://localhost:5432/users
+      connection-url: jdbc:postgresql://localhost:5432/vehicles
       username: dbuser
       password: postgres
       max-pool-size: 20

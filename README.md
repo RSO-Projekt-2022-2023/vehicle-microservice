@@ -3,7 +3,7 @@
 ## Prerequisites
 
 ```bash
-docker run -d --name user-db -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=vehicles -p 5432:5432 postgres:13
+docker run -d --name pg-image-metadata -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=vehicles -p 5432:5432 postgres:13
 ```
 
 ## Build and run commands
@@ -12,12 +12,12 @@ mvn clean package
 cd api/target
 java -jar image-catalog-api-1.0.0-SNAPSHOT.jar
 ```
-Available at: localhost:8080/v1/images
+Available at: localhost:8080/v1/vehicles
 
 ## Run in IntelliJ IDEA
 Add new Run configuration and select the Application type. In the next step, select the module api and for the main class com.kumuluz.ee.EeApplication.
 
-Available at: localhost:8080/v1/images
+Available at: localhost:8080/v1/vehicles
 
 ## Docker commands
 ```bash
