@@ -8,8 +8,20 @@ kumuluzee:
     http:
       port: 8080
   datasources:
-    - jndi-name: jdbc/ImageMetadataDS
+    - jndi-name: jdbc/VehicleDS
       connection-url: jdbc:postgresql://localhost:5432/vehicles
       username: dbuser
       password: postgres
       max-pool-size: 20
+  health:
+    checks:
+      data-source-health-check:
+        type: liveness
+        jndi-name: jdbc/VehicleDS
+    metrics:
+      web-instrumentation:
+        - name: vehicles-endpoint
+          url-pattern: /v1/vehicles/*
+rest-properties:
+  maintenance-mode: false
+  broken: false

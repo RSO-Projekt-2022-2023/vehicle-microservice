@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
 
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import si.fri.rso.project.vehicle.lib.Vehicle;
 import si.fri.rso.project.vehicle.models.converters.VehicleConverter;
 import si.fri.rso.project.vehicle.models.entities.VehicleEntity;
@@ -26,6 +27,7 @@ public class VehicleBean {
     @Inject
     private EntityManager em;
 
+    @Timed
     public List<Vehicle> getVehicle() {
 
         TypedQuery<VehicleEntity> query = em.createNamedQuery(

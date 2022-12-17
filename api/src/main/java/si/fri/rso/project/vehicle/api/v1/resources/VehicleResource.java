@@ -9,6 +9,7 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import si.fri.rso.project.vehicle.config.RestProperties;
 import si.fri.rso.project.vehicle.lib.Vehicle;
 import si.fri.rso.project.vehicle.services.beans.VehicleBean;
 
@@ -35,6 +36,8 @@ public class VehicleResource {
     @Inject
     private VehicleBean vehicleBean;
 
+    @Inject
+    private RestProperties restProperties;
 
     @Context
     protected UriInfo uriInfo;
