@@ -5,11 +5,11 @@ import java.time.Instant;
 public class Vehicle {
 
     private Integer vehicleId;
+    private Integer userId;
     private String model;
     private Integer num_of_kilometers;
     private Integer lst_charge;
     private Integer num_of_charges_lst_month;
-    private Instant created;
 
 
 
@@ -45,13 +45,6 @@ public class Vehicle {
         this.num_of_charges_lst_month = num_of_charges_lst_month;
     }
 
-    public Instant getCreated() {
-        return created;
-    }
-
-    public void setCreated(Instant created) {
-        this.created = created;
-    }
 
     public Integer getVehicleId() {
         return vehicleId;
@@ -61,4 +54,11 @@ public class Vehicle {
         this.vehicleId = vehicleId;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 }

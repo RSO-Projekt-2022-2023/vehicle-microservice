@@ -7,14 +7,17 @@ import java.time.Instant;
 @Table(name = "vehicles")
 @NamedQueries(value =
         {
-                @NamedQuery(name = "VehicleEntity.getAll",
-                        query = "SELECT im FROM VehicleEntity im")
+                @NamedQuery(name = "VehicleEntity.getAll", query = "SELECT im FROM VehicleEntity im"),
+                @NamedQuery(name = "VehicleEntity.GetVehiclesByUserId", query = "SELECT im FROM VehicleEntity im WHERE im.user_id = ?1"),
         })
 public class VehicleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name="user_id")
+    private Integer user_id;
 
     @Column(name = "model")
     private String model;
@@ -28,8 +31,7 @@ public class VehicleEntity {
     @Column(name = "num_of_charges_lst_month")
     private Integer num_of_charges_lst_month;
 
-    @Column(name = "created")
-    private Instant created;
+
 
     public Integer getId() {
         return id;
@@ -71,12 +73,12 @@ public class VehicleEntity {
         this.num_of_charges_lst_month = num_of_charges_lst_month;
     }
 
-    public Instant getCreated() {
-        return created;
+
+    public Integer getUserId() {
+        return user_id;
     }
 
-    public void setCreated(Instant created) {
-        this.created = created;
+    public void setUserId(Integer user_id) {
+        this.user_id = user_id;
     }
-
 }

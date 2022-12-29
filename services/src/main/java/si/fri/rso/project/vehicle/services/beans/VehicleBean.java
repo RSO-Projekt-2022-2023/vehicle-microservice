@@ -3,6 +3,7 @@ package si.fri.rso.project.vehicle.services.beans;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.UriInfo;
@@ -37,6 +38,17 @@ public class VehicleBean {
 
         return resultList.stream().map(VehicleConverter::toDto).collect(Collectors.toList());
 
+    }
+
+    @Timed
+    public List<Vehicle> getVehiclesForUser(Integer userId) {
+
+        TypedQuery<VehicleEntity> query = em.createNamedQuery(
+                "VehicleEntity.GetVehiclesByUserId", VehicleEntity.class).setParameter(1, userId);
+
+        List<VehicleEntity> resultList = query.getResultList();
+
+        return resultList.stream().map(VehicleConverter::toDto).collect(Collectors.toList());
     }
 
     public List<Vehicle> getVehicleFilter(UriInfo uriInfo) {

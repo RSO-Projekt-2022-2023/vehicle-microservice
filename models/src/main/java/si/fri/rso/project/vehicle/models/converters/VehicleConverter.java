@@ -11,12 +11,11 @@ public class VehicleConverter {
 
         Vehicle dto = new Vehicle();
         dto.setVehicleId(entity.getId());
-        dto.setCreated(entity.getCreated());
         dto.setNumOfKilometers(entity.getNumOfKilometers());
         dto.setModel(entity.getModel());
         dto.setNumOfChargesLstMonth(entity.getNumOfChargesLstMonth());
         dto.setLstCharge(entity.getLstCharge());
-
+        dto.setUserId(entity.getUserId());
         return dto;
 
     }
@@ -24,7 +23,7 @@ public class VehicleConverter {
     public static VehicleEntity toEntity(Vehicle dto) {
 
         VehicleEntity entity = new VehicleEntity();
-        entity.setCreated(dto.getCreated());
+        entity.setUserId(dto.getUserId());
         entity.setNumOfKilometers(dto.getNumOfKilometers());
         entity.setModel(dto.getModel());
         entity.setNumOfChargesLstMonth(dto.getNumOfChargesLstMonth());
