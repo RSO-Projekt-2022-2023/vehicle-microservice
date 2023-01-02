@@ -1,5 +1,6 @@
 package si.fri.rso.project.vehicle.api.v1.resources;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.logs.cdi.Log;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
@@ -30,6 +31,7 @@ import java.util.logging.Logger;
 @Path("/vehicles")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@CrossOrigin(allowOrigin = "*")
 public class VehicleResource {
 
     private Logger log = Logger.getLogger(VehicleResource.class.getName());
@@ -128,7 +130,7 @@ public class VehicleResource {
     })
     @PUT
     @Path("{vehicleId}")
-    public Response putImageMetadata(@Parameter(description = "Vehicle ID.", required = true)
+    public Response putVehicle(@Parameter(description = "Vehicle ID.", required = true)
                                      @PathParam("vehicleId") Integer vehicleId,
                                      @RequestBody(
                                              description = "DTO object with vehicle data.",
