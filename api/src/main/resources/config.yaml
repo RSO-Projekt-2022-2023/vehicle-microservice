@@ -46,6 +46,14 @@ kumuluzee:
                                   </Root>
                               </Loggers>
                           </Configuration>'
+  cors-filter:
+    annotations:
+      my-resource:
+        allow-origin: "*"
+        allow-subdomains: true
+        supported-methods: "GET, POST, HEAD, OPTIONS, PUT, DELETE"
+
+
 rest-properties:
   maintenance-mode: false
   broken: false

@@ -31,7 +31,7 @@ import java.util.logging.Logger;
 @Path("/vehicles")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@CrossOrigin(allowOrigin = "*")
+@CrossOrigin(supportedMethods = "GET, POST, HEAD, OPTIONS, PUT, DELETE")
 public class VehicleResource {
 
     private Logger log = Logger.getLogger(VehicleResource.class.getName());

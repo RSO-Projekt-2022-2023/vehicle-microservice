@@ -1,6 +1,7 @@
 package si.fri.rso.project.vehicle.api.v1.resources;
 
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import si.fri.rso.project.vehicle.config.RestProperties;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -17,6 +18,7 @@ import java.util.logging.Logger;
 @Path("/demo")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@CrossOrigin(supportedMethods = "GET, POST, HEAD, OPTIONS, PUT, DELETE")
 public class DemoResource {
 
     private Logger log = Logger.getLogger(DemoResource.class.getName());
