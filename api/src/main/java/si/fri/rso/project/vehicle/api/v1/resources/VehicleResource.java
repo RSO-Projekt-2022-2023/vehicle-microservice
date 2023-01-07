@@ -2,6 +2,9 @@ package si.fri.rso.project.vehicle.api.v1.resources;
 
 import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.logs.cdi.Log;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Metered;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.headers.Header;
@@ -42,7 +45,7 @@ public class VehicleResource {
     @Context
     protected UriInfo uriInfo;
 
-    @Operation(description = "Get all image metadata.", summary = "Get all metadata")
+    @Operation(description = "Get all vehicles.", summary = "Get all vehicles")
     @APIResponses({
             @APIResponse(responseCode = "200",
                     description = "List of image metadata",
@@ -67,6 +70,7 @@ public class VehicleResource {
             )})
     @GET
     @Path("/user/{userId}")
+    @Metered(name = "request_get_vehicle_for_user")
     public Response getVehiclesForUser(@Parameter(description = "User ID.", required = true)
                                            @PathParam("userId") Integer userId)  {
 

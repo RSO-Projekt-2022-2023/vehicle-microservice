@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
 
+import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 import si.fri.rso.project.vehicle.lib.Vehicle;
 import si.fri.rso.project.vehicle.models.converters.VehicleConverter;
@@ -28,7 +29,8 @@ public class VehicleBean {
     @Inject
     private EntityManager em;
 
-    @Timed
+    @Counted(name = "counter_get_vehicles")
+    @Timed(name = "time_get_vehicles")
     public List<Vehicle> getVehicle() {
 
         TypedQuery<VehicleEntity> query = em.createNamedQuery(
@@ -40,7 +42,8 @@ public class VehicleBean {
 
     }
 
-    @Timed
+    @Counted(name = "counter_get_vehicles_for_user")
+    @Timed(name = "time_get_vehicles_for_user")
     public List<Vehicle> getVehiclesForUser(Integer userId) {
 
         TypedQuery<VehicleEntity> query = em.createNamedQuery(

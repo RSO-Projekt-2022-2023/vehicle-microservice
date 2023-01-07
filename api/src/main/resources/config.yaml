@@ -15,9 +15,13 @@ kumuluzee:
       max-pool-size: 20
   health:
     checks:
-      data-source-health-check:
-        type: liveness
+      data-source-health-checks:
         jndi-name: jdbc/VehicleDS
+        type: liveness
+      disk-space-health-check:
+        threshold: 100000000
+      http-health-check:
+        connection-url: https://www.google.com/
 #    metrics:
 #      web-instrumentation:
 #        - name: vehicles-endpoint
